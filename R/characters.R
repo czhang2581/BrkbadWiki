@@ -127,13 +127,13 @@ convert_url <- function(na, endp){
 #'
 #' @export
 #' @examples
-#' character()
-#' character(5, "display")
-#' character(7, "occupation")
-#' character(9, "image")
+#' characters()
+#' characters(5, "display")
+#' characters(7, "occupation")
+#' characters(9, "image")
 
 
-character <- function(id = '1', func = "display"){
+characters <- function(id = '1', func = "display"){
 
   func = tolower(func)
 
