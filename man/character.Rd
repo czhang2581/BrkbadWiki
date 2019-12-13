@@ -4,7 +4,7 @@
 \alias{character}
 \title{Information Search}
 \usage{
-character(id = "1", func = "display")
+characters(id = "1", func = "display")
 }
 \arguments{
 \item{id}{The id of the character the user wants to search for, it can also be the full name of the character. (like 'Walter White')}
