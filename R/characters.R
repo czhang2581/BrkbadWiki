@@ -1,9 +1,9 @@
 #' Full Character List
 #'
-#' This function allows the user to see the full character list. The output table will include some basic information about all the characters appeared in the show.
+#' This function allows the user to see the full character list. The output table will include some basic information about all the characters that appeared in the show.
 #'
-#' @param limit limit the amount of characters you receive. defaul to the full list (63).
-#' @return A table includes some basic information about the characters appeared in the show.
+#' @param limit limit the amount of characters you receive. default to the full list (63).
+#' @return A table includes some basic information about the characters that appeared in the show.
 #' @author Chuze Zhang <\url{https://github.com/QMSS-G5072-2019/Zhang_Chuze}>
 #'
 #' @importFrom dplyr %>%
@@ -64,7 +64,7 @@ option <- function(limit=63){
 
 #' Helper Function Convert
 #'
-#' This function is a helper function that helps the main function to convert character inputs to readable api addresses.
+#' This function is a helper function that helps the main function to convert character inputs to readable API addresses.
 #'
 #' @param na character input, the name of the character
 #' @param endp specify the API endpoint of the search
@@ -112,7 +112,7 @@ convert_url <- function(na, endp){
 
 #' Information Search
 #'
-#' This function allows the user to search for information they want to know about a character.
+#' This function allows the user to search for some detailed information they want to know about a character.
 #'
 #' @param id The id of the character the user wants to search for, it can also be the full name of the character. (like 'Walter White')
 #' @param func Specify what exactly the user wants to know about this character, valid inputs include display(all available information), occupation, status, death count, portrayed and image. Display is the default.
@@ -130,7 +130,7 @@ convert_url <- function(na, endp){
 #' characters()
 #' characters(5, "display")
 #' characters(7, "occupation")
-#' characters(9, "image")
+#' characters("Jesse Pinkman", "image")
 
 
 characters <- function(id = '1', func = "display"){

@@ -74,9 +74,9 @@ cause <- function(df, weapon){
 
 #' All Death Scenarios
 #'
-#' This function allows the user to retrieve some information about the death scenarios happened in the Breaking Bad
+#' This function allows the user to retrieve some information about some death scenarios that happened in the Breaking Bad
 #'
-#' @param func Specify what the user wants this function to perform, valid inputs include random(some information about a death at random), all(retrieve information about every death in Breaking Bad) and search(search for death scenarios by a specific cause)
+#' @param func Specify what the user wants this function to perform, valid inputs include random(some information about a death at random), all(retrieve information about every death happened in Breaking Bad) and search(search for death scenarios by a specific cause)
 #' @param weapon The casue of death, valid input include ("gun","shot","stab","knive","bomb","poison","strangle","garrote","crush","beat","decapitate","overdose","slit","collide")
 #' @return A table includes the requested(specified by *func*) information.
 #' @author Chuze Zhang <\url{https://github.com/QMSS-G5072-2019/Zhang_Chuze}>

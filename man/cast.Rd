@@ -7,13 +7,13 @@
 cast(id = "1")
 }
 \arguments{
-\item{id}{The id of the character (portrayed by the actor/actress the user is interested in) the user wants to search for, it can also be the full name of the character.}
+\item{id}{The id of the character (portrayed by the actor/actress the user is interested in) the user wants to search for, it can also be the full name of the character. (like "Walter White")}
 }
 \value{
-A table that shows some detailed information about an actor or actress who portrayed the character the user gave input to the function.
+A table with some detailed information about an actor or actress who portrayed the character the user gave input to the function.
 }
 \description{
-If the user is particularly interested in one of the actor or actresss appeared in the show, he or she can use this function to search for some detailed information about that actor or actress.
+If the user is particularly interested in one of the actors or actresses that appeared in the show, he or she can use this function to search for some detailed information about that actor or actress.
 }
 \examples{
 cast()

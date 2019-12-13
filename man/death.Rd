@@ -7,7 +7,7 @@
 death(func = "random", weapon = "gun")
 }
 \arguments{
-\item{func}{Specify what the user wants this function to perform, valid inputs include random(some information about a death at random), all(retrieve information about every death in Breaking Bad) and search(search for death scenarios by a specific cause)}
+\item{func}{Specify what the user wants this function to perform, valid inputs include random(some information about a death at random), all(retrieve information about every death happened in Breaking Bad) and search(search for death scenarios by a specific cause)}
 
 \item{weapon}{The casue of death, valid input include ("gun","shot","stab","knive","bomb","poison","strangle","garrote","crush","beat","decapitate","overdose","slit","collide")}
 }
@@ -15,7 +15,7 @@ death(func = "random", weapon = "gun")
 A table includes the requested(specified by *func*) information.
 }
 \description{
-This function allows the user to retrieve some information about the death scenarios happened in the Breaking Bad
+This function allows the user to retrieve some information about some death scenarios that happened in the Breaking Bad
 }
 \examples{
 death()

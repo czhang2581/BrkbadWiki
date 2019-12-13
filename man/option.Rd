@@ -7,13 +7,13 @@
 option(limit = 63)
 }
 \arguments{
-\item{limit}{limit the amount of characters you receive. defaul to the full list (63).}
+\item{limit}{limit the amount of characters you receive. default to the full list (63).}
 }
 \value{
-A table includes some basic information about the characters appeared in the show.
+A table includes some basic information about the characters that appeared in the show.
 }
 \description{
-This function allows the user to see the full character list. The output table will include some basic information about all the characters appeared in the show.
+This function allows the user to see the full character list. The output table will include some basic information about all the characters that appeared in the show.
 }
 \examples{
 option()

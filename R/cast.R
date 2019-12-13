@@ -2,7 +2,7 @@
 #'
 #' This function is a helper function that helps the main function to clean up the children section
 #'
-#' @param value Digits representing how many children an individual has, or just the name of a child in character string
+#' @param value Digits indicating how many children an individual has, or just the name of a child in character string
 #' @return Keep the digits and remove all explanations after that.
 #' @author Chuze Zhang <\url{https://github.com/QMSS-G5072-2019/Zhang_Chuze}>
 #'
@@ -31,10 +31,10 @@ child_cleanup <- function(value){
 
 #' Search for Cast Memebers
 #'
-#' If the user is particularly interested in one of the actor or actresss appeared in the show, he or she can use this function to search for some detailed information about that actor or actress.
+#' If the user is particularly interested in one of the actors or actresses that appeared in the show, he or she can use this function to search for some detailed information about that actor or actress.
 #'
-#' @param id The id of the character (portrayed by the actor/actress the user is interested in) the user wants to search for, it can also be the full name of the character.
-#' @return A table that shows some detailed information about an actor or actress who portrayed the character the user gave input to the function.
+#' @param id The id of the character (portrayed by the actor/actress the user is interested in) the user wants to search for, it can also be the full name of the character. (like "Walter White")
+#' @return A table with some detailed information about an actor or actress who portrayed the character the user gave input to the function.
 #' @author Chuze Zhang <\url{https://github.com/QMSS-G5072-2019/Zhang_Chuze}>
 #'
 #' @importFrom dplyr %>%

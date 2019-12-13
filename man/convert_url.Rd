@@ -15,7 +15,7 @@ convert_url(na, endp)
 content of the search in list form
 }
 \description{
-This function is a helper function that helps the main function to convert character inputs to readable api addresses.
+This function is a helper function that helps the main function to convert character inputs to readable API addresses.
 }
 \author{
 Chuze Zhang <\url{https://github.com/QMSS-G5072-2019/Zhang_Chuze}>

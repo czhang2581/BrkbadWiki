@@ -7,7 +7,7 @@
 child_cleanup(value)
 }
 \arguments{
-\item{value}{Digits representing how many children an individual has, or just the name of a child in character string}
+\item{value}{Digits indicating how many children an individual has, or just the name of a child in character string}
 }
 \value{
 Keep the digits and remove all explanations after that.

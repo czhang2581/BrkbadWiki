@@ -15,13 +15,13 @@ characters(id = "1", func = "display")
 A table includes the requested(specified by *func*) information about a character.
 }
 \description{
-This function allows the user to search for information they want to know about a character.
+This function allows the user to search for some detailed information they want to know about a character.
 }
 \examples{
 characters()
 characters(5, "display")
 characters(7, "occupation")
-characters(9, "image")
+characters("Jesse Pinkman", "image")
 }
 \author{
 Chuze Zhang <\url{https://github.com/QMSS-G5072-2019/Zhang_Chuze}>
