@@ -1,0 +1,28 @@
+Package: BrkbadWiki
+Type: Package
+Title: A Breaking Bad Wiki
+Version: 0.1.0
+Authors@R: person("Chuze", "Zhang", email = "cz2581@columbia.edu",
+      role = c("aut", "cre"))
+Maintainer: The package maintainer: Please e-mail me at <cz2581@columbia.edu> 
+Description: This package allows the user to search for any information they want to know about one of the greatest TV series of all time, the Breaking Bad. There are three main functions in this package. *character* allows the user to search for all the information they want to know about a specific character in the show, like his or her occupation, the name of the actor/actress that portrays the character, the number of deaths an individual is responsible for. Users can even get a small image of the character if they want. *cast* allows the users to get more information about the actors or actresses appeared in the show. *death* allows the users to search for some death scenes that happened in the show. 
+License: MIT + file LICENSE
+Depends: R (>= 3.1.0)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.99.9001
+URL: <https://github.com/QMSS-G5072-2019/Zhang_Chuze>
+Imports:
+    knitr,
+    dplyr, 
+    rvest,
+    httr,
+    jsonlite,
+    purrr,
+    stringr,
+    xml2,
+    imager,
+    testthat
+VignetteBuilder: knitr
+Suggests: 
+    rmarkdown
