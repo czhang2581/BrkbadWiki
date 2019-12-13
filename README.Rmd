@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 # BrkbadWiki
 
 
-The goal of BrkbadWiki is to provide a "search engine" that give detailed information about the characters and scenes in Breaking Bad (TV series)
+The goal of BrkbadWiki is to provide a "search engine" that gives detailed information about the characters and scenarios happened in the Breaking Bad (TV series)
 
 ## Installation
 
