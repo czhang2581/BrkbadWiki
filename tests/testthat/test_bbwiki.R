@@ -7,19 +7,19 @@ test_that("Length of option", {
 })
 
 
-check_character_1 <- character(3, "Occupation")
+check_character_1 <- characters(3, "Occupation")
 check_character_1 <- check_character_1[check_character_1$Key=="Occupation",]%>%.$Value%>%as.character()
 
 
-check_character_2 <- character(10, "death count")
+check_character_2 <- characters(10, "death count")
 check_character_2 <- check_character_2[check_character_2$Key=="Death Count",]%>%.$Value%>%as.character()
 
 
 test_that("Result of character search is accurate", {
   expect_equal(check_character_1, 'House wife, Book Keeper, Car Wash Manager, Taxi Dispatcher')
   expect_equal(check_character_2, '3')
-  expect_error(character("Walter", "display"))
-  expect_error(character(3, "age"))
+  expect_error(characters("Walter", "display"))
+  expect_error(characters(3, "age"))
 })
 
 check_cast_1 <- cast(2)
