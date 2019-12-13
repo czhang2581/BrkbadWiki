@@ -1,6 +1,3 @@
----
-output: github_document
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -38,3 +35,15 @@ character("Walter White","Occupation")
 cast("Jesse Pinkman")
 death("random")
 ```
+
+
+## Usage
+
+The __option__ function allows the user to see the full character list. The output table will include some basic information about all the characters appeared in the show.
+The __character__ function allows the user to search for information they want to know about a character, like his or her occupation, status, the name of the actor or actress that portrayed this character, etc. 
+If the user is particularly interested in one of the actor or actresss appeared in the show, he or she can use the __cast__ function to search for some detailed information about that actor or actress.
+Last but not least, the __death__ function allows the user to retrieve some information about the death scenarios happened in the Breaking Bad
+
+## Contact
+If you have any question, please e-mail me at <cz2581@columbia.edu> 
+
