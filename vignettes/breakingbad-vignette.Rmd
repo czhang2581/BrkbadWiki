@@ -36,7 +36,7 @@ The `BrkbadWiki` package contains four functions: `option()`, `characters()`, `c
 
 ### opti$\color{green}{\text{o}}$n()
 * This function allows the user to see the full character list.                    
-* **param** (limit) : Limit the amount of characters users receive. default to the full list (63).
+* **param** (`limit`) : Limit the amount of characters users receive. default to the full list (63).
 * The output table will include some basic information about the characters that appeared in the show.   
 * Have you found someone that interests you?
 
@@ -74,14 +74,14 @@ kable(cast("Mike Ehrmantraut"))
 * **param** (`weapon`) : The casue of death, valid input include ("gun","shot","stab","knive","bomb","poison","strangle","garrote","crush","beat","decapitate","overdose","slit","collide")
 
 ```{r}
-death('random')
+kable(death('random'))
 ```
 
 ```{r}
 kable(death('search', 'bomb'))
 ```
 
-###Maintai($\color{green}{\text{ne}}$)r 
+## Maintai$\color{green}{\text{ne}}$r 
 
 The package maintainer: Please e-mail me at <cz2581@columbia.edu> 
 
