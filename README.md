@@ -4,7 +4,7 @@
 # BrkbadWiki
 A Breaking Bad Wiki
 
-The goal of BrkbadWiki is to provide a "search engine" that give detailed information about the characters and scenes in Breaking Bad (TV series)
+The goal of BrkbadWiki is to provide a "search engine" that gives detailed information about the characters and scenarios in the Breaking Bad (TV series)
 
 ## Installation
 
