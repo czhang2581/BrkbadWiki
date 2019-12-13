@@ -18,10 +18,10 @@ A table includes the requested(specified by *func*) information about a characte
 This function allows the user to search for information they want to know about a character.
 }
 \examples{
-character()
-character(5, "display")
-character(7, "occupation")
-character(9, "image")
+characters()
+characters(5, "display")
+characters(7, "occupation")
+characters(9, "image")
 }
 \author{
 Chuze Zhang <\url{https://github.com/QMSS-G5072-2019/Zhang_Chuze}>
