@@ -24,7 +24,7 @@ You can install the released version of BrkbadWiki from [Github](https://github.
 
 ``` r
 install.packages("devtools")
-devtools::install_github("czhang2581/BrkbadWiki")
+devtools::install_github("czhang2581/BrkbadWiki", build_vignettes = TRUE)
 ```
 
 ## Example
