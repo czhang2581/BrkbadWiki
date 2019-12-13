@@ -15,7 +15,7 @@ death(func = "random", weapon = "gun")
 A table includes the requested(specified by *func*) information.
 }
 \description{
-This function allows the user to retrieve some information about some death scenarios that happened in the Breaking Bad
+This function allows the user to retrieve information about some death scenarios that happened in the Breaking Bad
 }
 \examples{
 death()

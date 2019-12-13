@@ -118,6 +118,6 @@ cast <- function(id='1'){
   table_df[table_df$Key=="Born",]$Value<- table_df[table_df$Key=="Born",]$Value%>%str_replace_all("\\)","\\) | ")
   table_df[table_df$Key=="Education",]$Value<- table_df[table_df$Key=="Education",]$Value%>%str_replace_all("\\)","\\) | ")
 
-  table_df
+  return (table_df)
 
 }

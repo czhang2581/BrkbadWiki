@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Chuze Zhang" />
+
+<meta name="date" content="2019-12-13" />
+
+<title>BreakingBadWiki-vignette</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">BreakingBadWiki-vignette</h1>
+<h4 class="author">Chuze Zhang</h4>
+<h4 class="date">12/13/2019</h4>
+
+
+
+<div id="introduccolorgreentexttion" class="section level2">
+<h2>Introduc<span class="math inline">\(\color{green}{\text{ti}}\)</span>on</h2>
+<p>Breaking Bad is regarded as one of the greatest tv series of all time. It receives more than 1 million ratings from IMDB users, and the average rating is a remarkable 9.5. One of the fans of this show created an API website that contains detailed information about the 63 characters that appeared in the show and all episodes. My goal is to extract information from the API and create a package that allows the user to search for the information they want to know about the show, like a character’s nickname, the name of the actor or actress that portrayed a specific character, or even the number of deaths an individual is responsible for. I want my API client to be a Breaking Bad Wiki that allows the users to look up information that interests them.</p>
+</div>
+<div id="colorgreentextlinks-to-data-sources" class="section level2">
+<h2><span class="math inline">\(\color{green}{\text{Li}}\)</span>nks to Data Sources</h2>
+<p>The documentation of the Breaking Bad API can be accessed by navigating to <a href="https://breakingbadapi.com/Documentation" class="uri">https://breakingbadapi.com/Documentation</a>, and the base Url is <a href="https://www.breakingbadapi.com/api/" class="uri">https://www.breakingbadapi.com/api/</a>. The Breaking Bad API has four different endpoints: characters, episodes, quote, and deaths.</p>
+</div>
+<div id="descolorgreentextcription" class="section level2">
+<h2>Des<span class="math inline">\(\color{green}{\text{cr}}\)</span>iption</h2>
+<p>The <code>BrkbadWiki</code> package contains four functions: <code>option()</code>, <code>characters()</code>, <code>cast()</code>, and <code>death()</code>.</p>
+<div id="opticolorgreentexton" class="section level3">
+<h3>opti<span class="math inline">\(\color{green}{\text{o}}\)</span>n()</h3>
+<ul>
+<li>This function allows the user to see the full character list.<br />
+</li>
+<li><strong>param</strong> (limit) : Limit the amount of characters users receive. default to the full list (63).</li>
+<li>The output table will include some basic information about the characters that appeared in the show.<br />
+</li>
+<li>Have you found someone that interests you?</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">option</span>(<span class="dv">10</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#&gt;                Name ID     Nickname              Actor</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#&gt; 1      Walter White  1   Heisenberg     Bryan Cranston</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#&gt; 2     Jesse Pinkman  2  Cap n&#39; Cook         Aaron Paul</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">#&gt; 3      Skyler White  3          Sky          Anna Gunn</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#&gt; 4  Walter White Jr.  4        Flynn           RJ Mitte</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#&gt; 5    Henry Schrader  5         Hank        Dean Norris</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co">#&gt; 6    Marie Schrader  6        Marie       Betsy Brandt</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co">#&gt; 7  Mike Ehrmantraut  7         Mike     Jonathan Banks</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co">#&gt; 8      Saul Goodman  8 Jimmy McGill       Bob Odenkirk</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co">#&gt; 9     Gustavo Fring  9          Gus Giancarlo Esposito</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">#&gt; 10 Hector Salamanca 10   Don Hector      Mark Margolis</span></span></code></pre></div>
+</div>
+<div id="chcolorgreentextaracters" class="section level3">
+<h3>ch<span class="math inline">\(\color{green}{\text{ar}}\)</span>acters()</h3>
+<ul>
+<li>This function allows the user to search for some detailed information they want to know about a character.</li>
+<li><strong>param</strong> (<code>id</code>) : The id of the character the user wants to search for, it can also be the full name of the character. (like ‘Walter White’)</li>
+<li><strong>param</strong> (<code>func</code>) : Specify what exactly the user wants to know about this character, valid inputs include display(all available information), occupation, status, death count, portrayed and image. Display is the default.</li>
+<li>The output table includes the requested(specified by <code>func</code>) information about a character.</li>
+<li>Who’s you favorite character?</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">characters</span>(<span class="dv">7</span>, <span class="st">&quot;display&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">#&gt;           Key                                Value</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt; 1       Names                     Mike Ehrmantraut</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#&gt; 2    Birthday                              Unknown</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#&gt; 3  Occupation Hitman, Private Investigator, Ex-Cop</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#&gt; 4      Status                             Deceased</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt; 5    Nickname                                 Mike</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; 6 Death Count                                    5</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt; 7   Portrayed                       Jonathan Banks</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">characters</span>(<span class="st">&quot;Mike Ehrmantraut&quot;</span>, <span class="st">&quot;image&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAIAAACb4TnXAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAgAElEQVR4nOy9eYzlV3bfd8659/62t9Wrpau62d1sNskhmx7NotEyM5Yt2VYkGE5iS7IFITbiP+IgMfJHYjuAFyQIkDhAgiAWnCAGvMDOAiUOJO/xGtmRJVsejSxryOHMkN1Dsvfal7f8truckz9+r14Xm9TYBlSsHvN+QBCvfq/ewsvft86933PuuSgiEIlEzge66C8QifybTBRYJHKORIFFIudIFFgkco5EgUUi50gUWCRyjkSBRSLnSBRYJHKORIFFIudIFFgkco5EgUUi50gUWCRyjkSBRSLnSBRYJHKORIFFIudIFFgkco5EgUUi50gUWCRyjkSBRSLnSBRYJHKORIFFIudIFFgkco5EgUUi50gUWCRyjkSBRSLnSBRYJHKORIFFIudIFFgkco5EgUUi50gUWCRyjkSBRSLnSBRYJHKORIFFIudIFFgkco5EgUUi50gUWCRyjkSBRSLnSBRYJHKORIFFIudIFFgkco5EgUUi50gUWCRyjkSBRSLnSBRYJHKORIFFIudIFFgkco5EgUUi50gUWCRyjkSBRSLnSBRYJHKORIFFIudIFFgkco5EgUUi50gUWCRyjkSBRSLnSBRYJHKORIFFIudIFFgkco5EgUUi50gUWCRyjkSBRSLnSBRYJHKORIFFIudIFFgkco5EgUUi50gUWCRyjkSBRSLnSBRYJHKORIFFIudIFFgkco5EgUUi50gUWCRyjkSBRSLnSBRYJHKORIFFIudIFFgkco5EgUUi50gUWCRyjuiL/gIfR1594TlEfOqiUkpElj8+9QuIuLwiIogCAESEAoi4fOHZVwkSIiIGZkbIlFICngWUuERpESFARAwERAQAiE8+xSAt3h9RKdU9JvBEZNTpUwQAkGiDiBpEa62Ju99XCFrrQb/3X/7Zv/brOnLffkSBXQBlWcIHJLS80t3uH7z+/h958Vg+/IWIyK5NkiQ3mhB+03f/hp2dnen0xDfltZdf++U33vbOU0oiIoxaawBQqpMZIqKShboWPyolIokGIrIISilEREKlKDivlGIE770mJiKllCZk5rqO86MosIvgg9KC0zt7+dSv9TuLB/IhF1kYAAlYa93PsiLp1XU9GPTruv7Ff/5m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" /><!-- --></p>
+</div>
+<div id="colorgreentextcast" class="section level3">
+<h3><span class="math inline">\(\color{green}{\text{ca}}\)</span>st()</h3>
+<ul>
+<li>If the user is particularly interested in one of the actors or actresses that appeared in the show, he or she can use this function to search for some detailed information about that actor or actress.</li>
+<li><strong>param</strong> (<code>id</code>) : The id of the character (portrayed by the actor/actress the user is interested in) the user wants to search for, it can also be the full name of the character. (like “Walter White”)</li>
+<li>The output table will contain some detailed information about an actor or actress who portrayed the character the user gave input to the function.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">cast</span>(<span class="st">&quot;Skyler White&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt;            Key</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt; 1         Name</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt; 2         Born</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">#&gt; 3   Occupation</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">#&gt; 4 Years-active</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#&gt; 5    Spouse(s)</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co">#&gt; 6     Children</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">#&gt; 7     Web Page</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">#&gt;                                                              Value</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co">#&gt; 1                                                        Anna Gunn</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">#&gt; 2 (1968-08-11) |  August 11, 1968 (age 51) | Cleveland, Ohio, U.S.</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="co">#&gt; 3                                                          Actress</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="co">#&gt; 4                                                     1992–present</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co">#&gt; 5                              Alastair Duncan(m. 1990; div. 2009)</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="co">#&gt; 6                                                                2</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="co">#&gt; 7                          https://en.wikipedia.org/wiki/Anna_Gunn</span></span></code></pre></div>
+</div>
+<div id="death" class="section level3">
+<h3>death()</h3>
+<ul>
+<li>This function allows the user to retrieve information about some death scenarios that happened in the Breaking Bad</li>
+<li><strong>param</strong> (<code>func</code>) : Specify what the user wants this function to perform, valid inputs include random(some information about a death at random), all(retrieve information about every death happened in Breaking Bad) and search(search for death scenarios by a specific cause)</li>
+<li><strong>param</strong> (<code>weapon</code>) : The casue of death, valid input include (“gun”,“shot”,“stab”,“knive”,“bomb”,“poison”,“strangle”,“garrote”,“crush”,“beat”,“decapitate”,“overdose”,“slit”,“collide”)</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">death</span>(<span class="st">&#39;random&#39;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt;           Key                                     Value</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt; 1       Death                          Mike Ehrmantraut</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; 2       Cause                          Shot in the gut.</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt; 3 Responsible                              Walter White</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt; 4  Last Words Shut the fuck up and let me die in peace.</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; 5       Occur                       Season 5 | Episode7</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">death</span>(<span class="st">&#39;search&#39;</span>, <span class="st">&#39;bomb&#39;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#&gt;   ID             Death</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#&gt; 1  9 Unnamed DEA agent</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#&gt; 2 37  Hector Salamanca</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">#&gt; 3 38        Tyrus Kitt</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#&gt; 4 39     Gustavo Fring</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#&gt;                                                                                          Cause</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">#&gt; 1                                                                Blown up by bomb in tortoise.</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">#&gt; 2                                       Blown up by pipe bomb detonated by a wheel-chair bell.</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">#&gt; 3                                       Blown up by pipe bomb detonated by a wheel-chair bell.</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">#&gt; 4 Blown up by pipe bomb detonated by a wheel-chair bell. Also lost the right side of his face.</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co">#&gt;                         Responsible Last Words Season Episode</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co">#&gt; 1                       The Cousins    Unknown      2       7</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">#&gt; 2          Himself and Walter White  *grunting      4      13</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co">#&gt; 3 Hector Salamanca and Walter White It&#39;s clear      4      13</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co">#&gt; 4 Hector Salamanca and Walter White      Hall!      4      13</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="co">#&gt;   Number of Deaths</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co">#&gt; 1                1</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a><span class="co">#&gt; 2                1</span></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="co">#&gt; 3                1</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="co">#&gt; 4                1</span></span></code></pre></div>
+<p>###Maintai(<span class="math inline">\(\color{green}{\text{ne}}\)</span>)r</p>
+<p>The package maintainer: Please e-mail me at <a href="mailto:cz2581@columbia.edu" class="email">cz2581@columbia.edu</a></p>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

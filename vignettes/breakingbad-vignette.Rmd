@@ -1,5 +1,5 @@
 ---
-title: "breakingbad-vignette"
+title: "BreakingBadWiki-vignette"
 author: "Chuze Zhang"
 date: "12/13/2019"
 output: rmarkdown::html_vignette
@@ -16,6 +16,74 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, include = FALSE}
 library(BrkbadWiki)
+library(knitr)
 ```
+
+## Introduc$\color{green}{\text{ti}}$on    
+
+Breaking Bad is regarded as one of the greatest tv series of all time. It receives more than 1 million ratings from IMDB users, and the average rating is a remarkable 9.5. One of the fans of this show created an API website that contains detailed information about the 63 characters that appeared in the show and all episodes. My goal is to extract information from the API and create a package that allows the user to search for the information they want to know about the show, like a character's nickname, the name of the actor or actress that portrayed a specific character, or even the number of deaths an individual is responsible for. I want my API client to be a Breaking Bad Wiki that allows the users to look up information that interests them. 
+
+
+## $\color{green}{\text{Li}}$nks to Data Sources
+
+The documentation of the Breaking Bad API can be accessed by navigating to <https://breakingbadapi.com/Documentation>, and the base Url is https://www.breakingbadapi.com/api/. The Breaking Bad API has four different endpoints: characters, episodes, quote, and deaths.    
+
+## Des$\color{green}{\text{cr}}$iption   
+
+The `BrkbadWiki` package contains four functions: `option()`, `characters()`, `cast()`, and `death()`.
+
+### opti$\color{green}{\text{o}}$n()
+* This function allows the user to see the full character list.                    
+* **param** (limit) : Limit the amount of characters users receive. default to the full list (63).
+* The output table will include some basic information about the characters that appeared in the show.   
+* Have you found someone that interests you?
+
+```{r}
+kable(option(10))
+```
+
+### ch$\color{green}{\text{ar}}$acters()
+* This function allows the user to search for some detailed information they want to know about a character.
+* **param** (`id`) : The id of the character the user wants to search for, it can also be the full name of the character. (like 'Walter White')
+* **param** (`func`) : Specify what exactly the user wants to know about this character, valid inputs include display(all available information), occupation, status, death count, portrayed and image. Display is the default.
+* The output table includes the requested(specified by `func`) information about a character.
+* Who's you favorite character?
+
+```{r}
+kable(characters(7, "display"))
+```
+
+```{r}
+characters("Mike Ehrmantraut", "image")
+```
+
+### $\color{green}{\text{ca}}$st()
+* If the user is particularly interested in one of the actors or actresses that appeared in the show, he or she can use this function to search for some detailed information about that actor or actress.
+* **param** (`id`) : The id of the character (portrayed by the actor/actress the user is interested in) the user wants to search for, it can also be the full name of the character. (like "Walter White")
+* The output table will contain some detailed information about an actor or actress who portrayed the character the user gave input to the function.
+
+```{r}
+kable(cast("Mike Ehrmantraut"))
+```
+
+### death()
+* This function allows the user to retrieve information about some death scenarios that happened in the Breaking Bad
+* **param** (`func`) : Specify what the user wants this function to perform, valid inputs include random(some information about a death at random), all(retrieve information about every death happened in Breaking Bad) and search(search for death scenarios by a specific cause)
+* **param** (`weapon`) : The casue of death, valid input include ("gun","shot","stab","knive","bomb","poison","strangle","garrote","crush","beat","decapitate","overdose","slit","collide")
+
+```{r}
+death('random')
+```
+
+```{r}
+kable(death('search', 'bomb'))
+```
+
+###Maintai($\color{green}{\text{ne}}$)r 
+
+The package maintainer: Please e-mail me at <cz2581@columbia.edu> 
+
+
+

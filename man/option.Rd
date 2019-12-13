@@ -13,7 +13,7 @@ option(limit = 63)
 A table includes some basic information about the characters that appeared in the show.
 }
 \description{
-This function allows the user to see the full character list. The output table will include some basic information about all the characters that appeared in the show.
+This function allows the user to see the full character list. The output table will include some basic information about the characters that appeared in the show.
 }
 \examples{
 option()

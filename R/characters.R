@@ -1,6 +1,6 @@
 #' Full Character List
 #'
-#' This function allows the user to see the full character list. The output table will include some basic information about all the characters that appeared in the show.
+#' This function allows the user to see the full character list. The output table will include some basic information about the characters that appeared in the show.
 #'
 #' @param limit limit the amount of characters you receive. default to the full list (63).
 #' @return A table includes some basic information about the characters that appeared in the show.
@@ -8,6 +8,7 @@
 #'
 #' @importFrom dplyr %>%
 #' @importFrom httr GET http_error content http_type
+#'
 #'
 #' @export
 #' @examples
@@ -125,6 +126,7 @@ convert_url <- function(na, endp){
 #' @importFrom graphics plot
 #' @importFrom imager load.image
 #'
+#'
 #' @export
 #' @examples
 #' characters()
@@ -194,6 +196,7 @@ characters <- function(id = '1', func = "display"){
     df <- data.frame("Key"=keys,"Value"=values)
 
     return(df)
+
   }
 
   if (func == "occupation"){
