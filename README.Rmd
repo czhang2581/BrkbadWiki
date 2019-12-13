@@ -34,7 +34,7 @@ This is a basic example which shows you how to do some wiki search:
 ```{r example}
 library(BrkbadWiki)
 option(5)
-character("Walter White","Occupation")
+characters("Walter White","Occupation")
 cast("Jesse Pinkman")
 death("random")
 ```
