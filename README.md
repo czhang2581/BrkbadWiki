@@ -8,7 +8,7 @@ The goal of BrkbadWiki is to provide a wiki page for the Breaking Bad (TV series
 
 ## Installation
 
-You can install the released version of BrkbadWiki from [CRAN](https://github.com) with:
+You can install the released version of BrkbadWiki from [Github](https://github.com) with:
 
 ``` r
 install.packages("devtools")
